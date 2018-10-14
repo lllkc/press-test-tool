@@ -46,13 +46,13 @@ int BatchCall(DoWorkOnce &&fn, uint32_t qps, uint32_t threadCnt,
                      endTime.tv_usec - beginTime.tv_usec) /
                     1e3;
 
-  printf("All Thread end. Cost %u ms. Process count: %u, Failed count: %u, "
-         "Success rate: %.2f%%, Avg cost: %.2f ms, Qps: %.2f\n",
-         costMs, totalCnt, *failedCnt,
-         double((totalCnt > 0) ? (100.0 * (totalCnt - *failedCnt) / totalCnt)
-                               : 100),
-         double((totalCnt > 0) ? (1.0 * costMs / totalCnt) : 0.0),
-         double((totalCnt > 0) ? (totalCnt * 1000.0 / costMs) : 0.0));
+  printf(
+      "All Thread end. Cost %u ms. Process count: %u, Failed count: %u, "
+      "Success rate: %.2f%%, Avg cost: %.2f ms, Qps: %.2f\n",
+      costMs, totalCnt, *failedCnt,
+      ((totalCnt > 0) ? (100.0 * (totalCnt - *failedCnt) / totalCnt) : 100.0),
+      ((totalCnt > 0) ? (1.0 * costMs / totalCnt) : 0.0),
+      ((totalCnt > 0) ? (totalCnt * 1000.0 / costMs) : 0.0));
   return 0;
 }
 };

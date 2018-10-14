@@ -27,9 +27,9 @@ public:
     printf("Task %u end. Process count: %u, Failed count: %u, "
            "Success rate: %.2f%%, Avg cost: %.2f ms, Qps: %.2f\n",
            m_taskId, m_doneCnt, m_failedCnt,
-           double((m_doneCnt > 0) ? (100.0 * m_successCnt / m_doneCnt) : 100),
-           double((m_doneCnt > 0) ? (1.0 * m_totalCostTime / m_doneCnt) : 0.0),
-           double((m_doneCnt > 0) ? (m_doneCnt * 1000.0 / costTime) : 0.0));
+           ((m_doneCnt > 0) ? (100.0 * m_successCnt / m_doneCnt) : 100),
+           ((m_doneCnt > 0) ? (1.0 * m_totalCostTime / m_doneCnt) : 0.0),
+           ((m_doneCnt > 0) ? (m_doneCnt * 1000.0 / costTime) : 0.0));
   }
   void Run() {
     int ret = 0;
